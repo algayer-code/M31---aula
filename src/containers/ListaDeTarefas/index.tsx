@@ -1,23 +1,24 @@
 import Tarefa from '../../components/Tarefa'
 import { Container } from './styles'
+import * as emuns from '../../utils/enums/Tarefa'
 
 const tarefas = [
   {
     titulo: 'Tarefa 1',
-    prioridade: 'importante',
-    status: 'Pendente',
+    prioridade: emuns.Prioridade.IMPORTANTE,
+    status: emuns.Status.PENDENTE,
     descricao: 'Descrição da tarefa 1'
   },
   {
     titulo: 'Tarefa 2',
-    prioridade: 'urgente',
-    status: 'Em andamento',
+    prioridade: emuns.Prioridade.URGENTE,
+    status: emuns.Status.PENDENTE,
     descricao: 'Descrição da tarefa 2'
   },
   {
     titulo: 'Tarefa 3',
-    prioridade: 'normal',
-    status: 'concluida',
+    prioridade: emuns.Prioridade.NORMAL,
+    status: emuns.Status.CONCLUIDA,
     descricao: 'Descrição da tarefa 3'
   }
 ]

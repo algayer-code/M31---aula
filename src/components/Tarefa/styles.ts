@@ -1,18 +1,22 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 
+import * as emuns from '../../utils/enums/Tarefa'
+
 type TagProps = {
-  prioridade?: string
-  status?: string
+  prioridade?: emuns.Prioridade
+  status?: emuns.Status
+  parametro: 'prioridade' | 'status'
 }
 
 function retornaCorDeFundo(props: TagProps): string {
-  if ('status' in props) {
-    if (props.status === 'pendente') return variaveis.amarelo
-    if (props.status === 'c ') return variaveis.verde
-  } else if ('prioridade' in props) {
-    if (props.prioridade === 'urgente') return variaveis.vermelho
-    if (props.prioridade === 'importante') return variaveis.amarelo2
+  if (props.parametro === 'prioridade') {
+    if (props.prioridade === emuns.Prioridade.URGENTE) return variaveis.vermelho
+    if (props.prioridade === emuns.Prioridade.IMPORTANTE)
+      return variaveis.amarelo2
+  } else {
+    if (props.status === emuns.Status.PENDENTE) return variaveis.amarelo
+    if (props.status === emuns.Status.CONCLUIDA) return variaveis.verde
   }
   return '#ccc'
 }
@@ -67,7 +71,7 @@ export const Botao = styled.button`
   padding: 8px 12px;
   border: none;
   cursor: pointer;
-  background-color: rgb(238, 161, 19);
+  background-color: #4a85f1;
   border-radius: 8px;
   margin-right: 8px;
 `
