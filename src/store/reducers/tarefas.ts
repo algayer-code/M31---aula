@@ -10,21 +10,21 @@ const initialState: TarefasState = {
   itens: [
     {
       id: 1,
-      titulo: 'Comprar pão',
+      titulo: 'Comprar Carne',
       descricao: 'Ir na padaria e comprar pão',
-      prioridade: enums.Prioridade.NORMAL,
+      prioridade: enums.Prioridade.IMPORTANTE,
       status: enums.Status.PENDENTE
     },
     {
       id: 2,
-      titulo: 'Comprar pão',
+      titulo: 'Comprar Arroz',
       descricao: 'Ir na padaria e comprar pão',
-      prioridade: enums.Prioridade.NORMAL,
+      prioridade: enums.Prioridade.URGENTE,
       status: enums.Status.PENDENTE
     },
     {
       id: 3,
-      titulo: 'Comprar pão',
+      titulo: 'Vender Comida',
       descricao: 'Ir na padaria e comprar pão',
       prioridade: enums.Prioridade.NORMAL,
       status: enums.Status.PENDENTE
