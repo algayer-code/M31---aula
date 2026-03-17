@@ -1,15 +1,17 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
 import * as S from './styles'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as emuns from '../../utils/enums/Tarefa'
 
-type Props = {
-  titulo: string
-  prioridade: emuns.Prioridade
-  status: emuns.Status
-  descricao: string
-}
+import { remover } from '../../store/reducers/tarefas'
+import TarefaClass from '../../models/Tarefa'
 
-const Tarefa = ({ titulo, prioridade, status, descricao }: Props) => {
+type Props = TarefaClass
+
+const Tarefa = ({ titulo, prioridade, status, descricao, id }: Props) => {
+  const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
   return (
     <S.Card>
@@ -32,7 +34,9 @@ const Tarefa = ({ titulo, prioridade, status, descricao }: Props) => {
         ) : (
           <>
             <S.Botao onClick={() => setEstaEditando(true)}>Editar</S.Botao>
-            <S.BotaoCancelarRemover>Remover</S.BotaoCancelarRemover>
+            <S.BotaoCancelarRemover onClick={() => dispatch(remover(id))}>
+              Remover
+            </S.BotaoCancelarRemover>
           </>
         )}
       </S.BarraAcoes>
