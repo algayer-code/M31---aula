@@ -38,9 +38,17 @@ const tarefasSlice = createSlice({
   reducers: {
     remover: (state, action: PayloadAction<number>) => {
       state.itens = state.itens.filter((tarefa) => tarefa.id !== action.payload)
+    },
+    editar: (state, action: PayloadAction<Tarefa>) => {
+      state.itens = state.itens.map((tarefa) => {
+        if (tarefa.id === action.payload.id) {
+          return action.payload
+        }
+        return tarefa
+      })
     }
   }
 })
 
-export const { remover } = tarefasSlice.actions
+export const { remover, editar } = tarefasSlice.actions
 export default tarefasSlice.reducer
